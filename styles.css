@@ -75,6 +75,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    table-layout: fixed;
     border: 2px solid #6a1b9a;
 }
 
@@ -87,8 +88,9 @@ table caption {
 }
 
 table th, table td {
+    word-wrap: break-word;
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 5px;
     text-align: left;
 }
 
@@ -168,14 +170,13 @@ input[type="date"],
     table {
         width: 100%;
         border-collapse: collapse;
-        table-layout: fixed;
+        page-break-inside: avoid;
     }
-    
+
     th, td {
-        word-wrap: break-word;
+        border: 1px solid #000;
         padding: 5px;
         text-align: left;
-        border: 1px solid #000;
     }
 
     th {
@@ -213,6 +214,6 @@ input[type="date"],
         table-layout: fixed; 
     }
     th, td {
-        word-wrap: break-word; 
+        word-wrap: break-word;
     }
 }
