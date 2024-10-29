@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WATCh Paediatric Emergency Drug Sheet</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>WATCh Paediatric Emergency Drug Sheet</h1>
+        </div>
+        <div class="header">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Logo" class="logo">
+                <h2 class="phone-number">0300 0300 789</h2>
+                <img src="qr.png" alt="QR Code" class="qr">
+            </div>
+        </div>
+        <label for="patient-name">Patient's Name (optional):</label>
+        <input type="text" id="patient-name" placeholder="Enter patient's name">
+        
+        <h4>Age Input Method:</h4>
+        
+        <div class="radio-group">
+            <label>
+                <input type="radio" name="age-method" value="dob" checked> Date of Birth
+            </label>
+            <label>
+                <input type="radio" name="age-method" value="estimated-age"> Estimated Age
+            </label>
+        </div>
+        
+        <div id="dob-input" class="age-input">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob">
+            <p id="age-display"></p>
+        </div>
+        
+        <div id="estimated-age-input" style="display: none;">
+            <label for="age-value">Age:</label>
+            <div class="age-input-container">
+                <input type="number" id="age-value" placeholder="Enter age">
+                <select id="age-unit">
+                    <option value="years">Years</option>
+                    <option value="months">Months</option>
+            </select>
+            </div>  
+        </div>
+
+        <label for="weight">Weight (kg):</label>
+        <div class="weight-entry">
+            <input type="number" id="weight" placeholder="Enter weight" min="0" step="0.1">
+            <button id="estimate-weight">Estimate</button>
+        </div>
+
+        <button id="submit-button">Submit</button>
+
+    
+    <table id="tube-sizes"></table>
+    <table id="emergency-drugs"></table>
+    <table id="bolus-drugs"></table>
+    <table id="intubation-drugs"></table>
+    <table id="fluids"></table>
+    <table id="sedation-infusions"></table>
+    <table id="cardiac-infusions"></table>
+    <table id="other-infusions"></table>
+
+    <div class="footer">
+        <p>Version 27.17<br>Drug sheet developed by Will Marriage & WATCh Service ©2014&2021<br>Please provide feedback via QR code above<br>Web implementation by Alasdair Joyce ©2024</p>
+    </div>
+
+    <script src="script.js"></script>
+</div>
+</body>
+</html>
