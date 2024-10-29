@@ -168,13 +168,14 @@ input[type="date"],
     table {
         width: 100%;
         border-collapse: collapse;
-        page-break-inside: avoid;
+        table-layout: fixed;
     }
-
+    
     th, td {
-        border: 1px solid #000;
+        word-wrap: break-word;
         padding: 5px;
         text-align: left;
+        border: 1px solid #000;
     }
 
     th {
@@ -209,5 +210,9 @@ input[type="date"],
         width: 100%;
         border-collapse: collapse;
         font-size: 80%;
+        table-layout: fixed; 
+    }
+    th, td {
+        word-wrap: break-word; 
     }
 }
