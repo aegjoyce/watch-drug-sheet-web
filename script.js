@@ -92,8 +92,8 @@ const intubationDrugs = [
     { name: "Ketamine", dosePerKg: 2, unit: "mg", normalDose: "2 mg/kg", displayConcentration: "Many concentrations available - please check!" },
     { name: "Midazolam", dosePerKg: 100, unit: "micrograms", concentration: 5000, normalDose: "100 micrograms/kg" }, // 5 mg/ml
     { name: "Rocuronium", dosePerKg: 1, unit: "mg", concentration: 10, normalDose: "1 mg/kg" }, // 10 mg/ml
-    { name: "Propofol 1%", dosePerKg: 2.5, unit: "ml", normalDose: "2.5 ml/kg" }, // 1% = 10mg/ml
-    { name: "Suxamethonium", dosePerKg: weight < 10 ? 2 : 1, unit: "mg", concentration: 50, normalDose: weight < 10 ? "2 mg/kg" : "1 mg/kg" }, // 50 mg/ml
+    { name: "Propofol 1%", dosePerKg: 0.25, unit: "ml", normalDose: "0.25 ml/kg" }, // 1% = 10mg/ml
+    { name: "Suxamethonium", dosePerKg: (weight) => weight < 10 ? 2 : 1, unit: "mg", concentration: 50, normalDose: (weight) => weight < 10 ? "2 mg/kg" : "1 mg/kg" },
     { name: "Thiopentone (rarely indicated)", dosePerKg: 5, unit: "mg", concentration: 25, normalDose: "5 mg/kg" } // 25 mg/ml
 ];
 
@@ -553,7 +553,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         
         const calculatedIntubationDrugs = intubationDrugs.map(drug => {
-            let dose = weight * drug.dosePerKg;
+            let dosePerKg = typeof drug.dosePerKg === 'function' ? drug.dosePerKg(weight) : drug.dosePerKg;
+            let normalDose = typeof drug.normalDose === 'function' ? drug.normalDose(weight) : drug.normalDose;
+            let dose = weight * dosePerKg;
+            
             if (drug.minDose && dose < drug.minDose) dose = drug.minDose;
             if (drug.maxDose && dose > drug.maxDose) dose = drug.maxDose;
             const maxDoseText = drug.maxDose && dose === drug.maxDose ? " (max dose)" : "";
@@ -565,7 +568,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             return {
                 name: drug.name,
-                normalDose: drug.normalDose,
+                normalDose: normalDose,
                 dose: `${dose}${maxDoseText}`,
                 concentration: drug.name === "Midazolam" ? "5 mg/ml" : drug.displayConcentration || `${drug.concentration} ${drug.unit}/ml`,
                 volume: drug.name === "Ketamine" || drug.name === "Propofol 1%" ? "" : formatValue(volume, 'ml')
