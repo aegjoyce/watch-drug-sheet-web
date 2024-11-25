@@ -17,6 +17,11 @@ body {
     border-radius: 8px;
 }
 
+.install-button-container {
+    text-align: center; /* Center-align text within the container */
+    margin: 20px 0; /* Add some margin for spacing */
+}
+
 #install-button {
     display: inline-flex;
     align-items: center;
@@ -31,10 +36,15 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
+    margin-left: 10px; /* Add some space between the text and the button */
+    vertical-align: middle; /* Align button vertically with text */
 }
 
-#install-button:hover {
+#install-button img {
+    vertical-align: middle; /* Align icon vertically with text */
+}
+
+#install-buttons:hover {
     background-color: #4a148c;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
