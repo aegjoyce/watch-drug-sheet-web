@@ -330,6 +330,8 @@ const otherInfusions = [
     }
 ];
 
+const boldText = (text) => text.replace(/(Central|Peripheral)/g, '<strong>$1</strong>');
+
 function formatValue(value, unit = '') {
     const formattedValue = Number.isInteger(value) ? value.toString() : value.toFixed(2).replace(/\.?0+$/, '');
     return unit ? `${formattedValue} ${unit}` : formattedValue;
@@ -437,7 +439,7 @@ document.addEventListener("DOMContentLoaded", () => {
         defibrillation = calculateDefibrillation(weight);
         drugDoses = calculateDrugDoses(weight);
 
-        displayResults(measurements, suctionCatheterMeasurement, fluidBolus, defibrillation, urinaryCatheterMeasurement, chestDrainMeasurement, drugDoses, weight);
+        displayResults(measurements, suctionCatheterMeasurement, fluidBolus, defibrillation, urinaryCatheterMeasurement, chestDrainMeasurement, drugDoses, weight, boldText);
     });
 
     // Modal functionality
@@ -605,7 +607,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return table[nearestKey];
     }
 
-    function displayResults(measurements, suctionCatheterMeasurement, fluidBolus, defibrillation, urinaryCatheterMeasurement, chestDrainMeasurement, drugDoses, weight) {
+    function displayResults(measurements, suctionCatheterMeasurement, fluidBolus, defibrillation, urinaryCatheterMeasurement, chestDrainMeasurement, drugDoses, weight, boldText) {
         const tubeSizesTable = document.getElementById('tube-sizes');
         const emergencyDrugsTable = document.getElementById('emergency-drugs');
         const bolusDrugsTable = document.getElementById('bolus-drugs');
@@ -654,8 +656,6 @@ document.addEventListener("DOMContentLoaded", () => {
             </tbody>
         `;
 
-
-
         emergencyDrugsTable.innerHTML = `
             <caption>Emergency Drug Doses</caption>
             <tr>
@@ -667,7 +667,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </tr>
             ${drugDoses.calculatedDrugs.map(drug => `
                 <tr>
-                    <td>${drug.name}</td>
+                    <td>${boldText(drug.name)}</td>
                     <td>${drug.normalDose}</td>
                     <td>${drug.dose}</td>
                     <td>${drug.name === "Adrenaline 1:10000" || drug.name === "Sodium Bicarbonate 8.4%" || drug.name === "Calcium Gluconate 10%" ? "" : drug.concentration}</td>
@@ -685,7 +685,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </tr>
             ${drugDoses.calculatedBolusDrugs.map(drug => `
                 <tr>
-                    <td>${drug.name}</td>
+                    <td>${boldText(drug.name)}</td>
                     <td>${drug.normalDose}</td>
                     <td>${drug.dose}</td>
                 </tr>
@@ -703,7 +703,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </tr>
             ${drugDoses.calculatedIntubationDrugs.map(drug => `
                 <tr>
-                    <td>${drug.name}</td>
+                    <td>${boldText(drug.name)}</td>
                     <td>${drug.normalDose}</td>
                     <td>${drug.dose}</td>
                     <td>${drug.name === "Propofol 1%" ? "" : drug.concentration}</td>
@@ -745,7 +745,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </tr>
             ${sedationInfusions.map(infusion => `
                 <tr>
-                    <td>${infusion.name}</td>
+                    <td>${boldText(infusion.name)}</td>
                     <td>${infusion.standardRegime(weight)}</td>
                     <td>${infusion.calculatedRegime(weight)}</td>
                     <td>${infusion.startingRate(weight)}</td>
@@ -762,7 +762,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </tr>
             ${cardiacInfusions.map(infusion => `
                 <tr>
-                    <td>${infusion.name}</td>
+                    <td>${boldText(infusion.name)}</td>
                     <td>${infusion.standardRegime(weight)}</td>
                     <td>${infusion.calculatedRegime(weight)}</td>
                     <td>${infusion.startingRate(weight)}</td>
@@ -779,7 +779,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </tr>
             ${otherInfusions.map(infusion => `
                 <tr>
-                    <td>${infusion.name}</td>
+                    <td>${boldText(infusion.name)}</td>
                     <td>${infusion.standardRegime(weight)}</td>
                     <td>${infusion.calculatedRegime(weight)}</td>
                     <td>${infusion.startingRate(weight)}</td>
