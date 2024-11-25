@@ -440,6 +440,20 @@ document.addEventListener("DOMContentLoaded", () => {
         displayResults(measurements, suctionCatheterMeasurement, fluidBolus, defibrillation, urinaryCatheterMeasurement, chestDrainMeasurement, drugDoses, weight);
     });
 
+    // Modal functionality
+    const modal = document.getElementById("disclaimer-modal");
+    const closeModalButton = document.getElementById("close-modal");
+
+    // Show the modal on page load
+    window.onload = function() {
+        modal.style.display = "block";
+    };
+
+    // Close the modal when the user clicks the OK button
+    closeModalButton.onclick = function() {
+        modal.style.display = "none";
+    };
+
     function calculateAge(birthDate) {
         const today = new Date();
         let years = today.getFullYear() - birthDate.getFullYear();

@@ -45,7 +45,7 @@
                 <select id="age-unit">
                     <option value="years">Years</option>
                     <option value="months">Months</option>
-            </select>
+                </select>
             </div>  
         </div>
 
@@ -57,21 +57,31 @@
 
         <button id="submit-button">Submit</button>
 
-    
-    <table id="tube-sizes"></table>
-    <table id="emergency-drugs"></table>
-    <table id="bolus-drugs"></table>
-    <table id="intubation-drugs"></table>
-    <table id="fluids"></table>
-    <table id="sedation-infusions"></table>
-    <table id="cardiac-infusions"></table>
-    <table id="other-infusions"></table>
+        <table id="tube-sizes"></table>
+        <table id="emergency-drugs"></table>
+        <table id="bolus-drugs"></table>
+        <table id="intubation-drugs"></table>
+        <table id="fluids"></table>
+        <table id="sedation-infusions"></table>
+        <table id="cardiac-infusions"></table>
+        <table id="other-infusions"></table>
 
-    <div class="footer">
-        <p>Version 27.17<br>Drug sheet developed by Will Marriage & WATCh Service ©2014&2021<br>Please provide feedback via QR code above<br>Web implementation by Alasdair Joyce ©2024</p>
+        <div class="footer">
+            <p>Version 27.17<br>Drug sheet developed by Will Marriage & WATCh Service ©2014&2021<br>Please provide feedback via QR code above<br>Web implementation by Alasdair Joyce ©2024</p>
+        </div>
+    </div>
+
+    <div id="disclaimer-modal" class="modal">
+        <div class="modal-content">
+            <h2>Disclaimer</h2>
+            <p>By clicking “Proceed”, you agree to the following terms:</p>
+            <p>The WATCh Drug Calculator is designed for use by medical professionals only and all other use is unauthorised. It provides general information only and is not intended as an advisory service.</p>
+            <p>Whilst reasonable efforts have been made to ensure the accuracy and validity of the drug calculations on this website, no guarantees or warranties are made that the information presented is up-to-date, free from error, or accurate.</p>
+            <p>It remains the responsibility of the medical professional using this website to ensure the calculations and protocols prescribed are correct. WATCh accepts no responsibility or liability for errors, adverse events or harm from the use of this calculator.</p>
+            <button id="close-modal">Proceed</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
-</div>
 </body>
 </html>
