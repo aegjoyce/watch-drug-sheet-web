@@ -76,19 +76,19 @@ const drugs = [
 
 const bolusDrugs = [
     { name: "Aciclovir", dosePerKg: 20, unit: "mg", normalDose: "20 mg/kg if <60 days old, 500 * surface area (m²) if <12 years old, otherwise 5 mg/kg" },
-    { name: "Ceftriaxone", dosePerKg: 80, unit: "mg", normalDose: "80 mg/kg, once daily", maxDose: 4000 },
+    { name: "CefTRIAXone", dosePerKg: 80, unit: "mg", normalDose: "80 mg/kg, once daily", maxDose: 4000 },
     { name: "Glucose 10%", dosePerKg: 2, unit: "ml", normalDose: "2 ml/kg bolus, for hypoglycaemia", maxDose: 100 },
-    { name: "Lorazepam", dosePerKg: 0.1, unit: "mg", normalDose: "0.1 mg/kg", maxDose: 4 },
-    { name: "Levetiracetam", dosePerKg: 40, unit: "mg", normalDose: "40 mg/kg - infuse over 5 mins", maxDose: 3000 },
+    { name: "LORazepam", dosePerKg: 0.1, unit: "mg", normalDose: "0.1 mg/kg", maxDose: 4 },
+    { name: "LevETIRAcetam", dosePerKg: 40, unit: "mg", normalDose: "40 mg/kg - infuse over 5 mins", maxDose: 3000 },
     { name: "Magnesium Sulphate 50%", dosePerKg: 0.08, unit: "ml", normalDose: "0.08 ml/kg - dilute x10, slow IV over 20 mins", maxDose: 4 },
-    { name: "Phenobarbitol", dosePerKg: 20, unit: "mg", normalDose: "20 mg/kg - slow IV over 30 mins" },
+    { name: "PHENobarbitol", dosePerKg: 20, unit: "mg", normalDose: "20 mg/kg - slow IV over 30 mins" },
     { name: "Phenytoin", dosePerKg: 20, unit: "mg", normalDose: "20 mg/kg - slow IV over 30 mins", maxDose: 2000 },
     { name: "Hypertonic Saline", dosePerKg: 5, unit: "ml", normalDose: "5 ml/kg of 3% or 3 ml/kg of 5%", maxDose3Percent: 250, maxDose5Percent: 150 }
 ];
 
 const intubationDrugs = [
     { name: "Atropine", dosePerKg: 20, unit: "micrograms", concentration: 600, normalDose: "20 micrograms/kg", minDose: 100, maxDose: 600 },
-    { name: "Fentanyl", dosePerKg: 2, unit: "micrograms", concentration: 50, normalDose: "2 micrograms/kg" },
+    { name: "FentaNYL", dosePerKg: 2, unit: "micrograms", concentration: 50, normalDose: "2 micrograms/kg" },
     { name: "Ketamine", dosePerKg: 2, unit: "mg", normalDose: "2 mg/kg", displayConcentration: "Many concentrations available - please check!" },
     { name: "Midazolam", dosePerKg: 100, unit: "micrograms", concentration: 5000, normalDose: "100 micrograms/kg" }, // 5 mg/ml
     { name: "Rocuronium", dosePerKg: 1, unit: "mg", concentration: 10, normalDose: "1 mg/kg" }, // 10 mg/ml
@@ -139,7 +139,7 @@ const sedationInfusions = [
         }
     },
     {
-        name: "Fentanyl",
+        name: "FentaNYL",
         standardRegime: () => "Neat (50 micrograms/ml)",
         calculatedRegime: () => "250 micrograms in 5ml",
         startingRate: (weight) => {
@@ -166,7 +166,7 @@ const sedationInfusions = [
 
 const cardiacInfusions = [
     {
-        name: "Central Dopamine",
+        name: "Central DOPamine",
         standardRegime: (weight) => weight < 40 ? "15mg/kg made up to 50ml with Glucose 5% or NaCl 0.9%" : "3mg/kg made up to 50ml with Glucose 5% or NaCl 0.9%",
         calculatedRegime: (weight) => weight < 40 ? `${formatValue(weight * 15)}mg in 50ml` : `${formatValue(weight * 3)}mg in 50ml`,
         startingRate: (weight) => {
@@ -175,7 +175,7 @@ const cardiacInfusions = [
         }
     },
     {
-        name: "Dobutamine",
+        name: "DOBUTamine",
         standardRegime: (weight) => weight < 40 ? "15mg/kg made up to 50ml with Glucose 5% or NaCl 0.9%" : "3mg/kg made up to 50ml with Glucose 5% or NaCl 0.9%",
         calculatedRegime: (weight) => weight < 40 ? `${formatValue(weight * 15)}mg in 50ml` : `${formatValue(weight * 3)}mg in 50ml`,
         startingRate: (weight) => {
