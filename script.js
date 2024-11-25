@@ -337,6 +337,15 @@ function formatValue(value, unit = '') {
     return unit ? `${formattedValue} ${unit}` : formattedValue;
 }
 
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js').then(registration => {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, err => {
+        console.log('ServiceWorker registration failed: ', err);
+      });
+    });
+  }
 
 document.addEventListener("DOMContentLoaded", () => {
     const ageMethodRadios = document.querySelectorAll('input[name="age-method"]');
