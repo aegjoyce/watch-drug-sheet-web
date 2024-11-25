@@ -337,36 +337,6 @@ function formatValue(value, unit = '') {
     return unit ? `${formattedValue} ${unit}` : formattedValue;
 }
 
-let deferredPrompt;
-
-window.addEventListener('beforeinstallprompt', (e) => {
-    console.log('beforeinstallprompt event triggered'); // Log event trigger
-    // Prevent the mini-infobar from appearing on mobile
-    e.preventDefault();
-    // Stash the event so it can be triggered later.
-    deferredPrompt = e;
-    // Update UI to notify the user they can install the PWA
-    const installButton = document.getElementById('install-button');
-    installButton.style.display = 'block';
-
-    installButton.addEventListener('click', () => {
-        console.log('Install button clicked'); // Log button click
-        // Hide the install button
-        installButton.style.display = 'none';
-        // Show the install prompt
-        deferredPrompt.prompt();
-        // Wait for the user to respond to the prompt
-        deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-                console.log('User accepted the install prompt');
-            } else {
-                console.log('User dismissed the install prompt');
-            }
-            deferredPrompt = null;
-        });
-    });
-});
-
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('./service-worker.js').then(registration => {
@@ -376,6 +346,25 @@ if ('serviceWorker' in navigator) {
       });
     });
   }
+
+  function isIos() {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test(userAgent);
+}
+
+function isInStandaloneMode() {
+    return ('standalone' in window.navigator) && (window.navigator.standalone);
+}
+
+if (isIos() && !isInStandaloneMode()) {
+    const iosInstallModal = document.getElementById('ios-install-modal');
+    const closeIosModalButton = document.getElementById('close-ios-modal');
+    iosInstallModal.style.display = 'block';
+
+    closeIosModalButton.onclick = function() {
+        iosInstallModal.style.display = 'none';
+    };
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const ageMethodRadios = document.querySelectorAll('input[name="age-method"]');

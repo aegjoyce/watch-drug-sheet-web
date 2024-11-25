@@ -10,6 +10,19 @@
 </head>
 <body>
     <div class="container">
+
+        <div id="ios-install-modal" class="modal">
+            <div class="modal-content">
+                <h2>Add to Home Screen</h2>
+                <p>To add this app to your home screen:</p>
+                <ol>
+                    <li>Tap the <img src="icons/share-icon.png" alt="Share Icon" style="width: 20px; vertical-align: middle;"> icon at the bottom of the screen.</li>
+                    <li>Scroll down and tap "Add to Home Screen".</li>
+                </ol>
+                <button id="close-ios-modal">OK</button>
+            </div>
+        </div>
+
         <div class="title">
             <h1>WATCh Paediatric Emergency Drug Sheet</h1>
         </div>
@@ -20,8 +33,6 @@
                 <img src="./qr.png" alt="QR Code" class="qr">
             </div>
         </div>
-
-        <button id="install-button" style="display: none;">Install App</button>
 
         <label for="patient-name">Patient's Name (optional):</label>
         <input type="text" id="patient-name" placeholder="Enter patient's name">
