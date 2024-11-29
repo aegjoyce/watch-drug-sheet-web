@@ -31,67 +31,96 @@
             </button>
         </div>
 
-        <div class="title">
-            <h1>WATCh Paediatric Emergency Drug Sheet</h1>
-        </div>
-        <div class="header">
-            <div class="logo-container">
+        <div class="header-container">
+            <div class="title">
                 <img src="./logo.jpg" alt="Logo" class="logo">
-                <h2 class="phone-number">0300 0300 789</h2>
-                <img src="./qr.png" alt="QR Code" class="qr">
+                <h1>WATCh Paediatric Emergency Drug Sheet</h1>
+            </div>
+
+            <div class="header">
+                <div class="logo-container">
+                    <h2>Contact WATCh on <span style="color: #6a1b9a;">0300 0300 789</span></h2>
+                </div>
             </div>
         </div>
 
-        <label for="patient-name">Patient's Name (optional):</label>
-        <input type="text" id="patient-name" placeholder="Enter patient's name">
+        <div class="input-group">
+
+            <label for="patient-name">Patient's Name (optional):</label>
+            <input type="text" id="patient-name" placeholder="Enter patient's name">
+            
+            <h4>Age Input Method:</h4>
+            
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="age-method" value="dob" checked> Date of Birth
+                </label>
+                <label>
+                    <input type="radio" name="age-method" value="estimated-age"> Estimated Age
+                </label>
+            </div>
+            
+            <div id="dob-input" class="age-input">
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob">
+                <p id="age-display"></p>
+            </div>
+            
+            <div id="estimated-age-input" style="display: none;">
+                <label for="age-value">Age:</label>
+                <div class="age-input-container">
+                    <input type="number" id="age-value" placeholder="Enter age">
+                    <select id="age-unit">
+                        <option value="years">Years</option>
+                        <option value="months">Months</option>
+                    </select>
+                </div>  
+            </div>
+
+            <label for="weight">Weight (kg):</label>
+            <div class="weight-entry">
+                <input type="number" id="weight" placeholder="Enter weight" min="0" step="0.1">
+                <button id="estimate-weight">Estimate</button>
+            </div>
+
+            <button id="submit-button">Submit</button>
         
-        <h4>Age Input Method:</h4>
-        
-        <div class="radio-group">
-            <label>
-                <input type="radio" name="age-method" value="dob" checked> Date of Birth
-            </label>
-            <label>
-                <input type="radio" name="age-method" value="estimated-age"> Estimated Age
-            </label>
-        </div>
-        
-        <div id="dob-input" class="age-input">
-            <label for="dob">Date of Birth:</label>
-            <input type="date" id="dob">
-            <p id="age-display"></p>
-        </div>
-        
-        <div id="estimated-age-input" style="display: none;">
-            <label for="age-value">Age:</label>
-            <div class="age-input-container">
-                <input type="number" id="age-value" placeholder="Enter age">
-                <select id="age-unit">
-                    <option value="years">Years</option>
-                    <option value="months">Months</option>
-                </select>
-            </div>  
         </div>
 
-        <label for="weight">Weight (kg):</label>
-        <div class="weight-entry">
-            <input type="number" id="weight" placeholder="Enter weight" min="0" step="0.1">
-            <button id="estimate-weight">Estimate</button>
+        <div class="print-header" id="print-header">
+            <p>Patient's Name: <span id="print-patient-name"></span><br>Date of Birth: <span id="print-dob"></span><br>Estimated Age: <span id="print-age"></span><br>Weight: <span id="print-weight"></span></p>
         </div>
 
-        <button id="submit-button">Submit</button>
+        <div class="two-column">
+            <div>
+                <table id="tube-sizes"></table>
+                <table id="emergency-drugs"></table>
+            </div>
+            <div>
+                <table id="intubation-drugs"></table>
+                <table id="bolus-drugs"></table>
+            </div>
+        </div>
 
-        <table id="tube-sizes"></table>
-        <table id="emergency-drugs"></table>
-        <table id="bolus-drugs"></table>
-        <table id="intubation-drugs"></table>
-        <table id="fluids"></table>
-        <table id="sedation-infusions"></table>
-        <table id="cardiac-infusions"></table>
-        <table id="other-infusions"></table>
+        <div class="print-header" id="print-header-2">
+            <p>Patient's Name: <span id="print-patient-name-2"></span><br>Date of Birth: <span id="print-dob-2"></span><br>Estimated Age: <span id="print-age-2"></span><br>Weight: <span id="print-weight-2"></span></p>
+        </div>
 
+        <div class="two-column">
+            <div>
+                <table id="fluids"></table>
+                <table id="sedation-infusions"></table>
+            </div>
+            <div>
+                <table id="cardiac-infusions"></table>
+                <table id="other-infusions"></table>
+            </div>
+        </div>
+        
         <div class="footer">
-            <p>Version 27.17<br>Drug sheet developed by Will Marriage & WATCh Service ©2014&2021<br>Please provide feedback via QR code above<br>Web implementation by Alasdair Joyce ©2024</p>
+            <p>Version 27.17<br>Drug sheet developed by Will Marriage & WATCh Service ©2014 & 2021<br>Web implementation by Alasdair Joyce ©2024</p>
+            <p>Click <a href="https://redcapsurveys.uhbw.nhs.uk/surveys/?s=H8NEKL9R7MJ7N3EP" target="_blank">here</a> to report issues or scan code below</p>
+            <img src="./qr.png" alt="QR Code" class="qr">
         </div>
     </div>
 

@@ -409,6 +409,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const estimateWeightButton = document.getElementById("estimate-weight");
     const submitButton = document.getElementById("submit-button");
 
+    const printPatientName = document.getElementById("print-patient-name");
+    const printDob = document.getElementById("print-dob");
+    const printAge = document.getElementById("print-age");
+    const printWeight = document.getElementById("print-weight");
+
     let patientAgeInDays = 0;
 
     function clearAgeData() {
@@ -437,6 +442,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const age = calculateAge(dob);
         patientAgeInDays = calculateAgeInDays(dob);
         ageDisplay.textContent = `Age: ${age.years} years and ${age.months} months`;
+        printDob.textContent = dobField.value;
+        printAge.textContent = `${age.years} years and ${age.months} months`;
     });
 
     ageValueInput.addEventListener("input", updateEstimatedAgeInDays);
@@ -451,12 +458,14 @@ document.addEventListener("DOMContentLoaded", () => {
             patientAgeInDays = ageValue * 30;
         }
         ageDisplay.textContent = `Age: ${ageValue} ${ageUnit}`;
+        printAge.textContent = `Age: ${ageValue} ${ageUnit}`;
     }
 
     estimateWeightButton.addEventListener("click", () => {
         if (patientAgeInDays > 0) {
             const estimatedWeight = calculateEstimatedWeight(patientAgeInDays);
             weightField.value = estimatedWeight;
+            printWeight.textContent = `${estimatedWeight} kg`;
         } else {
             alert("Please enter the date of birth or estimated age to calculate weight.");
         }
@@ -466,6 +475,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const weight = parseFloat(weightField.value);
         const dob = dobField.value;
         const ageValue = ageValueInput.value;
+        const ageUnit = ageUnitSelect.value;
 
         if (!dob && !ageValue) {
             alert("Please enter either a date of birth or an age.");
@@ -476,6 +486,27 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Please enter a valid weight.");
             return;
         }
+    
+        const patientName = document.getElementById("patient-name").value;
+        printPatientName.textContent = patientName;
+        document.getElementById("print-patient-name-2").textContent = patientName;
+    
+        if (dob) {
+            const dobFormatted = new Date(dob).toLocaleDateString('en-GB');
+            printDob.textContent = dobFormatted;
+            document.getElementById("print-dob-2").textContent = dobFormatted;
+            printAge.textContent = 'N/A';
+            document.getElementById("print-age-2").textContent = 'N/A';
+        } else {
+            printAge.textContent = `Age: ${ageValue} ${ageUnit}`;
+            document.getElementById("print-age-2").textContent = `Age: ${ageValue} ${ageUnit}`;
+            printDob.textContent = 'N/A';
+            document.getElementById("print-dob-2").textContent = 'N/A';
+        }
+    
+        printWeight.textContent = `${weight} kg`;
+        document.getElementById("print-weight-2").textContent = `${weight} kg`;
+    
 
         let measurements;
         let suctionCatheterMeasurement;

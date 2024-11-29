@@ -1,25 +1,54 @@
-body {
-    font-family: 'Verdana', Geneva, sans-serif;
-    color: #555;
-    margin: 0;
-    padding: 20px;
-    background-color: #f9f9f9;
-    
+/* disclaimer modal */
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.5); 
 }
 
-.container {
-    width: 80%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.modal-content {
     background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 600px;
     border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
 }
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #6a1b9a;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #4a148c;
+}
+
+/* android app install button */
 
 .install-button-container {
-    text-align: center; /* Center-align text within the container */
-    margin: 20px 0; /* Add some margin for spacing */
+    text-align: center;
+    margin: 20px 0; 
 }
 
 #install-button {
@@ -36,12 +65,12 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-left: 10px; /* Add some space between the text and the button */
-    vertical-align: middle; /* Align button vertically with text */
+    margin-left: 10px; 
+    vertical-align: middle; 
 }
 
 #install-button img {
-    vertical-align: middle; /* Align icon vertically with text */
+    vertical-align: middle; 
 }
 
 #install-buttons:hover {
@@ -49,24 +78,26 @@ body {
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* ios install modal */
+
 #ios-install-modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.5); 
 }
 
 #ios-install-modal .modal-content {
     background-color: #fff;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto; 
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 80%; 
     max-width: 600px;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -92,6 +123,61 @@ body {
 #ios-install-modal .modal-content button:hover {
     background-color: #4a148c;
 }
+
+/* main content */
+
+body {
+    font-family: 'Verdana', Geneva, sans-serif;
+    color: #555;
+    margin: 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+/* titles and headers */
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-bottom:  0px; 
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 0;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo, .qr {
+    height: 120px; 
+}
+
+.print-header {
+    display: none; 
+}
+
+/* input section */
 
 input[type="text"],
 input[type="date"],
@@ -147,6 +233,25 @@ button:hover {
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
+.age-input-container {
+    display: flex;
+    gap: 10px; 
+    margin-bottom: 20px; 
+}
+
+.age-input {
+    margin-bottom: 20px; 
+}
+
+input[type="date"],
+.age-input-container input[type="number"],
+.age-input-container select {
+    height: 40px; 
+    box-sizing: border-box; 
+}
+
+/* results tables */
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -184,113 +289,51 @@ table tr:hover {
     background-color: #e1bee7; 
 }
 
-.age-input-container {
-    display: flex;
-    gap: 10px; 
-    margin-bottom: 20px; 
-}
-
-.age-input {
-    margin-bottom: 20px; 
-}
-
-input[type="date"],
-.age-input-container input[type="number"],
-.age-input-container select {
-    height: 40px; 
-    box-sizing: border-box; 
-}
-
-.title {
-    text-align: center;
-    padding: 10px;
-}
-
-.header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo, .qr {
-    height: 120px; /* Adjust the height as needed */
-}
-
-.phone-number {
-    color: #6a1b9a; /* Purple color */
-    margin: 0 10px; /* Add margin to separate the phone number from the images */
-}
-
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
-}
-
-.modal-content {
-    background-color: #fff;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-    max-width: 600px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    text-align: center;
-}
-
-.modal-content h2 {
-    margin-top: 0;
-}
-
-.modal-content button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #6a1b9a;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.modal-content button:hover {
-    background-color: #4a148c;
-}
-
 /* Print-specific styles */
+
 @media print {
     body {
+        font-size: 7px; 
         padding: 0;
         background-color: #fff;
-        font-size: 10%;
     }
 
     .container {
         width: 100%;
         max-width: none;
-        box-shadow: none;
         padding: 0;
+        box-shadow: none;
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .title {
+        text-align: left;
+        width: 50%;
+    }
+
+    .header {
+        text-align: right;
+        width: 50%; 
+    }
+
+    .input-group {
+        display: none; 
+    }
+
+    .logo, .qr {
+        height: 50px; 
     }
 
     table {
         width: 100%;
         border-collapse: collapse;
         page-break-inside: avoid;
+        font-size: 7px; 
     }
 
     th, td {
@@ -303,9 +346,34 @@ input[type="date"],
         background-color: #f2f2f2;
     }
 
-    @page {
-        size: A4;
-        margin: 10mm;
+    .two-column {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .two-column > div {
+        width: 50%;
+        box-sizing: border-box;
+        padding: 5px;
+    }
+
+    .footer {
+        margin-top: 150px;
+        text-align: center;
+        font-size: 8px;
+    }
+
+    .print-header {
+        display: block;
+        width: 100%;
+        background-color: #fff;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 20px;
+    }
+
+    #print-header-2 {
+        page-break-before: always;
     }
 }
 
