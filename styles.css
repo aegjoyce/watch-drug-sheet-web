@@ -326,6 +326,10 @@ table tr:hover {
         box-shadow: none;
     }
 
+    .install-button-container {
+        display: none; 
+    }
+    
     .header-container {
         display: flex;
         justify-content: space-between;
