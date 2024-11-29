@@ -355,7 +355,7 @@ table tr:hover {
     }
 
     .logo {
-        content: url('icons/logo-light.png') !important;
+        content: url('images/logo-light.png') !important;
     }
 
     .qr {
