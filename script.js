@@ -408,6 +408,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const weightField = document.getElementById("weight");
     const estimateWeightButton = document.getElementById("estimate-weight");
     const submitButton = document.getElementById("submit-button");
+    const logo = document.getElementById("logo");
+    const shareIcon = document.getElementById("share-icon");
+    const qr = document.getElementById("qr");
+
+    const updateLogo = () => {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            logo.src = "images/logo-dark.png";
+            shareIcon.src = "images/ios-share-icon-light.png";
+            qr.src = "images/qr-dark.png";
+        } else {
+            logo.src = "images/logo-light.png";
+            shareIcon.src = "images/ios-share-icon-dark.png";
+            qr.src = "images/qr-light.png";
+        }
+    };
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateLogo);
+
+    updateLogo();
 
     const printPatientName = document.getElementById("print-patient-name");
     const printDob = document.getElementById("print-dob");
