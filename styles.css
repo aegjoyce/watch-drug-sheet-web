@@ -327,9 +327,9 @@ table tr:hover {
     }
 
     .install-button-container {
-        display: none; 
+        display: none !important; 
     }
-    
+
     .header-container {
         display: flex;
         justify-content: space-between;
@@ -352,6 +352,14 @@ table tr:hover {
 
     .logo, .qr {
         height: 50px; 
+    }
+
+    .logo {
+        content: url('icons/logo-light.png') !important;
+    }
+
+    .qr {
+        content: url('images/qr-light.png') !important;
     }
 
     table {
