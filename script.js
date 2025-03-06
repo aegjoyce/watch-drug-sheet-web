@@ -584,14 +584,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function calculateEstimatedWeight(ageInDays) {
         let weight;
-        if (ageInDays < 365) {
-            weight = (ageInDays / 60) + 4;
-        } else if (ageInDays < 6 * 365) {
-            weight = ((ageInDays / 365) * 2) + 8;
+        if (ageInDays < 366) {
+            weight = Math.round(ageInDays / 60) + 4;
+        } else if (ageInDays < 2190) {
+            weight = (Math.floor(ageInDays / 365) * 2) + 8;
         } else {
-            weight = ((ageInDays / 365) * 3) + 7;
+            weight = (Math.floor(ageInDays / 365) * 3) + 7;
         }
-        return Math.round(weight); // Rounds to the nearest integer
+        return weight;
     }
 
     function calculateFluidBolus(weight) {
