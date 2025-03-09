@@ -1,0 +1,375 @@
+{
+    "ettMeasurements": {
+        "0": { "diameter": "3.0", "lengthLips": "11.0", "lengthNose": "14.0", "suctionCatheter": "6", "urinaryCatheter": "6", "chestDrain": "8-10", "minWeight": "1.5", "maxWeight": "10" },
+        "90": { "diameter": "3.0", "lengthLips": "12.0", "lengthNose": "15.0", "suctionCatheter": "7", "urinaryCatheter": "6", "chestDrain": "8-10", "minWeight": "3", "maxWeight": "10"  },
+        "180": { "diameter": "3.0-3.5", "lengthLips": "12.5", "lengthNose": "15.5", "suctionCatheter": "7-8", "urinaryCatheter": "6", "chestDrain": "8-10", "minWeight": "5", "maxWeight": "13"  },
+        "365": { "diameter": "3.5", "lengthLips": "13.0", "lengthNose": "16.0", "suctionCatheter": "8", "urinaryCatheter": "6", "chestDrain": "10-12", "minWeight": "7", "maxWeight": "16.5"  },
+        "730": { "diameter": "4.0", "lengthLips": "13.5", "lengthNose": "16.5", "suctionCatheter": "10", "urinaryCatheter": "8", "chestDrain": "10-12", "minWeight": "8", "maxWeight": "20"  },
+        "1095": { "diameter": "4.0-4.5", "lengthLips": "14.0", "lengthNose": "17.0", "suctionCatheter": "10", "urinaryCatheter": "8", "chestDrain": "10-12", "minWeight": "10", "maxWeight": "24"  },
+        "1460": { "diameter": "4.5", "lengthLips": "14.5", "lengthNose": "17.5", "suctionCatheter": "10", "urinaryCatheter": "8", "chestDrain": "12-14", "minWeight": "12", "maxWeight": "27"  },
+        "1825": { "diameter": "4.5-5.0", "lengthLips": "15.0", "lengthNose": "18.0", "suctionCatheter": "12", "urinaryCatheter": "8", "chestDrain": "12-14", "minWeight": "13", "maxWeight": "32"  },
+        "2190": { "diameter": "5.0", "lengthLips": "15.5", "lengthNose": "18.5", "suctionCatheter": "12", "urinaryCatheter": "8", "chestDrain": "12-14", "minWeight": "15", "maxWeight": "37"  },
+        "2555": { "diameter": "5.0-5.5", "lengthLips": "16.0", "lengthNose": "19.0", "suctionCatheter": "12", "urinaryCatheter": "8", "chestDrain": "12-14", "minWeight": "16", "maxWeight": "44"  },
+        "2920": { "diameter": "6.0-6.5", "lengthLips": "16.5", "lengthNose": "19.5", "suctionCatheter": "12", "urinaryCatheter": "8", "chestDrain": "14-16", "minWeight": "18", "maxWeight": "51"  },
+        "3285": { "diameter": "6.0-6.5", "lengthLips": "17.0", "lengthNose": "20.0", "suctionCatheter": "12", "urinaryCatheter": "8", "chestDrain": "14-16", "minWeight": "19", "maxWeight": "58"  },
+        "3650": { "diameter": "7.0", "lengthLips": "17.5", "lengthNose": "20.5", "suctionCatheter": "12", "urinaryCatheter": "10", "chestDrain": "14-16", "minWeight": "21", "maxWeight": "66"  },
+        "4015": { "diameter": "7.0", "lengthLips": "18.0", "lengthNose": "21.0", "suctionCatheter": "12", "urinaryCatheter": "10", "chestDrain": "14-16", "minWeight": "23", "maxWeight": "71"  },
+        "4380": { "diameter": "7.0-7.5", "lengthLips": "18.5", "lengthNose": "21.5", "suctionCatheter": "12", "urinaryCatheter": "10", "chestDrain": "16-20", "minWeight": "25", "maxWeight": "76"  },
+        "4745": { "diameter": "7.0-7.5", "lengthLips": "21.0", "lengthNose": "24.0", "suctionCatheter": "12", "urinaryCatheter": "10", "chestDrain": "16-20", "minWeight": "27", "maxWeight": "85"  },
+        "5110": { "diameter": "7.0-8.0", "lengthLips": "21.0", "lengthNose": "2.0", "suctionCatheter": "12", "urinaryCatheter": "12", "chestDrain": "16-20", "minWeight": "30", "maxWeight": "100"  }
+    },
+    "infantMeasurements": {
+        "0.7": { "diameter": "Uncuffed 2.5", "lengthLips": "7.5", "lengthNose": "9.0" },
+        "1.1": { "diameter": "Uncuffed 2.5", "lengthLips": "8.0", "lengthNose": "9.5" },
+        "1.6": { "diameter": "Uncuffed 3.0", "lengthLips": "8.5", "lengthNose": "10.0" },
+        "2.1": { "diameter": "3.0", "lengthLips": "9.0", "lengthNose": "10.5" },
+        "2.6": { "diameter": "3.0", "lengthLips": "9.5", "lengthNose": "11.0" }
+    },
+    "surfaceAreaTable": [
+        { "weight": 2.5, "surfaceArea": 0.19 }, { "weight": 3, "surfaceArea": 0.21 }, { "weight": 3.5, "surfaceArea": 0.24 },
+        { "weight": 4, "surfaceArea": 0.26 }, { "weight": 4.5, "surfaceArea": 0.28 }, { "weight": 5, "surfaceArea": 0.3 },
+        { "weight": 5.5, "surfaceArea": 0.38 }, { "weight": 6, "surfaceArea": 0.38 }, { "weight": 7, "surfaceArea": 0.38 },
+        { "weight": 7.5, "surfaceArea": 0.4 }, { "weight": 8, "surfaceArea": 0.42 }, { "weight": 8.5, "surfaceArea": 0.44 },
+        { "weight": 9, "surfaceArea": 0.46 }, { "weight": 9.5, "surfaceArea": 0.47 }, { "weight": 10, "surfaceArea": 0.49 },
+        { "weight": 11, "surfaceArea": 0.53 }, { "weight": 12, "surfaceArea": 0.56 }, { "weight": 13, "surfaceArea": 0.59 },
+        { "weight": 14, "surfaceArea": 0.62 }, { "weight": 15, "surfaceArea": 0.65 }, { "weight": 16, "surfaceArea": 0.68 },
+        { "weight": 17, "surfaceArea": 0.71 }, { "weight": 18, "surfaceArea": 0.74 }, { "weight": 19, "surfaceArea": 0.77 },
+        { "weight": 20, "surfaceArea": 0.79 }, { "weight": 21, "surfaceArea": 0.82 }, { "weight": 22, "surfaceArea": 0.85 },
+        { "weight": 23, "surfaceArea": 0.87 }, { "weight": 24, "surfaceArea": 0.9 }, { "weight": 25, "surfaceArea": 0.92 },
+        { "weight": 26, "surfaceArea": 0.95 }, { "weight": 27, "surfaceArea": 0.97 }, { "weight": 28, "surfaceArea": 1 },
+        { "weight": 29, "surfaceArea": 1 }, { "weight": 30, "surfaceArea": 1.1 }, { "weight": 31, "surfaceArea": 1.1 },
+        { "weight": 32, "surfaceArea": 1.1 }, { "weight": 33, "surfaceArea": 1.1 }, { "weight": 34, "surfaceArea": 1.1 },
+        { "weight": 35, "surfaceArea": 1.2 }, { "weight": 36, "surfaceArea": 1.2 }, { "weight": 37, "surfaceArea": 1.2 },
+        { "weight": 38, "surfaceArea": 1.2 }, { "weight": 39, "surfaceArea": 1.3 }, { "weight": 40, "surfaceArea": 1.3 },
+        { "weight": 41, "surfaceArea": 1.3 }, { "weight": 42, "surfaceArea": 1.3 }, { "weight": 43, "surfaceArea": 1.3 },
+        { "weight": 44, "surfaceArea": 1.4 }, { "weight": 45, "surfaceArea": 1.4 }, { "weight": 46, "surfaceArea": 1.4 },
+        { "weight": 47, "surfaceArea": 1.4 }, { "weight": 48, "surfaceArea": 1.4 }, { "weight": 49, "surfaceArea": 1.5 },
+        { "weight": 50, "surfaceArea": 1.5 }, { "weight": 51, "surfaceArea": 1.5 }, { "weight": 52, "surfaceArea": 1.5 },
+        { "weight": 53, "surfaceArea": 1.5 }, { "weight": 54, "surfaceArea": 1.6 }, { "weight": 55, "surfaceArea": 1.6 },
+        { "weight": 56, "surfaceArea": 1.6 }, { "weight": 57, "surfaceArea": 1.6 }, { "weight": 58, "surfaceArea": 1.6 },
+        { "weight": 59, "surfaceArea": 1.7 }, { "weight": 60, "surfaceArea": 1.7 }, { "weight": 61, "surfaceArea": 1.7 },
+        { "weight": 62, "surfaceArea": 1.7 }, { "weight": 63, "surfaceArea": 1.7 }, { "weight": 64, "surfaceArea": 1.7 },
+        { "weight": 65, "surfaceArea": 1.8 }, { "weight": 66, "surfaceArea": 1.8 }, { "weight": 67, "surfaceArea": 1.8 },
+        { "weight": 68, "surfaceArea": 1.8 }, { "weight": 69, "surfaceArea": 1.8 }, { "weight": 70, "surfaceArea": 1.9 },
+        { "weight": 71, "surfaceArea": 1.9 }, { "weight": 72, "surfaceArea": 1.9 }, { "weight": 73, "surfaceArea": 1.9 },
+        { "weight": 74, "surfaceArea": 1.9 }, { "weight": 75, "surfaceArea": 1.9 }, { "weight": 76, "surfaceArea": 2 },
+        { "weight": 77, "surfaceArea": 2 }, { "weight": 78, "surfaceArea": 2 }, { "weight": 79, "surfaceArea": 2 },
+        { "weight": 80, "surfaceArea": 2 }, { "weight": 81, "surfaceArea": 2 }, { "weight": 82, "surfaceArea": 2.1 },
+        { "weight": 83, "surfaceArea": 2.1 }, { "weight": 84, "surfaceArea": 2.1 }, { "weight": 85, "surfaceArea": 2.1 },
+        { "weight": 86, "surfaceArea": 2.1 }, { "weight": 87, "surfaceArea": 2.1 }, { "weight": 88, "surfaceArea": 2.2 },
+        { "weight": 89, "surfaceArea": 2.2 }, { "weight": 90, "surfaceArea": 2.2 }
+    ],
+    "emergencyDrugs": [
+        {
+            "name": "Adenosine",
+            "dose": "() => '100 micrograms/kg (initial), 250 micrograms/kg (full)'",
+            "calculatedDose": "(weight) => weight < 60 ? `${weight * 100} micrograms (initial), ${weight * 250} micrograms (full)` : weight < 96 ? `6000 micrograms (initial, max dose), ${weight * 250} micrograms (full)` : '6000 micrograms (initial, max dose), 24000 micrograms (full, max dose)'",
+            "concentration": "3 mg/ml",
+            "calculatedVolume": "(weight) => weight < 60 ? `${weight * 100 / 3000} ml (initial), ${weight * 250 / 3000} ml (full)` : weight < 96 ? `2 ml (initial), ${weight * 250 / 3000} ml (full)` : `2 ml (initial), 8 ml (full)`"
+        },
+        {
+            "name": "Adrenaline 1:10000",
+            "dose": "() => '0.1 ml/kg'",
+            "calculatedDose": "(weight) => `${weight * 0.1} ml`",
+            "concentration": "",
+            "calculatedVolume": "() => ''"
+        },
+        {
+            "name": "Amiodarone",
+            "dose": "() => '5 mg/kg'",
+            "calculatedDose": "(weight) => weight < 60 ? `${weight * 5} mg over 3 mins, only in arrest` : '300 mg over 3 mins, only in arrest (max dose)'",
+            "concentration": "50 mg/ml",
+            "calculatedVolume": "(weight) => weight < 60 ? `${weight * 5 / 50} ml` : '6 ml'"
+        },
+        {
+            "name": "Atropine",
+            "dose": "() => '20 micrograms/kg'",
+            "calculatedDose": "(weight) => weight < 5 ? '100 micrograms (min dose)' : weight > 30 ? '600 micrograms (max dose)' : `${weight * 20} micrograms`",
+            "concentration": "600 micrograms/ml",
+            "calculatedVolume": "(weight) => weight < 5 ? '0.17 ml' : weight > 30 ? '1 ml' : `${weight * 20 / 600} ml`"
+        },
+        {
+            "name": "Sodium Bicarbonate 8.4%",
+            "dose": "() => '1 ml/kg'",
+            "calculatedDose": "(weight) => `${weight} ml`",
+            "concentration": "",
+            "calculatedVolume": "() => ''"
+        },
+        {
+            "name": "Calcium Gluconate 10%",
+            "dose": "() => '0.5 ml/kg'",
+            "calculatedDose": "(weight) => weight < 60 ? `${weight * 0.5} ml` : '30 ml (max dose)'",
+            "concentration": "",
+            "calculatedVolume": "() => ''"
+        },
+        {
+            "name": "Lidocaine 1%",
+            "dose": "() => '1 mg/kg'",
+            "calculatedDose": "(weight) => `${weight} mg`",
+            "concentration": "10 mg/ml",
+            "calculatedVolume": "(weight) => `${weight / 10} ml`"
+        },
+        {
+            "name": "Naloxone",
+            "dose": "() => '10 micrograms/kg'",
+            "calculatedDose": "(weight) => `${weight * 10} micrograms`",
+            "concentration": "400 micrograms/ml",
+            "calculatedVolume": "(weight) => `${weight * 10 / 400} ml`"
+        },
+        {
+            "name": "Tranexamic Acid",
+            "dose": "() => '15 mg/kg'",
+            "calculatedDose": "(weight) => weight < 100 ? `${weight * 15} mg` : '1500 mg (max dose)'",
+            "concentration": "100 mg/ml",
+            "calculatedVolume": "(weight) => weight < 100 ? `${weight * 15 / 100} ml` : '15 ml'"
+        },
+        {
+            "name": "Vasopressin",
+            "dose": "() => '0.4 units/kg'",
+            "calculatedDose": "(weight) => `${weight * 0.4} units`",
+            "concentration": "20 units/ml",
+            "calculatedVolume": "(weight) => `${weight * 0.4 / 20} ml`"
+        }
+    ],
+    "intubationDrugs": [
+        {
+            "name": "Atropine",
+            "dose": "() => '20 micrograms/kg'",
+            "calculatedDose": "(weight) => weight < 5 ? '100 micrograms (min dose)' : weight > 30 ? '600 micrograms (max dose)' : `${weight * 20} micrograms`",
+            "concentration": "600 micrograms/ml",
+            "calculatedVolume": "(weight) => weight < 5 ? '0.17 ml' : weight > 30 ? '1 ml' : `${weight * 20 / 600} ml`"
+        },
+        {
+            "name": "FentaNYL",
+            "dose": "() => '2 micrograms/kg'",
+            "calculatedDose": "(weight) => `${weight * 2} micrograms`",
+            "concentration": "50 micrograms/ml",
+            "calculatedVolume": "(weight) => `${weight * 2 / 50} ml`"
+        },
+        {
+            "name": "Ketamine",
+            "dose": "() => '2 mg/kg'",
+            "calculatedDose": "(weight) => `${weight * 2} mg`",
+            "concentration": "Many concentrations available - please check!",
+            "calculatedVolume": "() => ''"
+        },
+        {
+            "name": "Midazolam",
+            "dose": "() => '100 micrograms/kg'",
+            "calculatedDose": "(weight) => `${weight * 100} micrograms`",
+            "concentration": "5 mg/ml",
+            "calculatedVolume": "(weight) => `${weight * 100 / 5000} ml`"
+        },
+        {
+            "name": "Rocuronium",
+            "dose": "() => '1 mg/kg'",
+            "calculatedDose": "(weight) => `${weight} mg`",
+            "concentration": "10 mg/ml",
+            "calculatedVolume": "(weight) => `${weight / 10} ml`"
+        },
+        {
+            "name": "Propofol 1%",
+            "dose": "() => '0.25 ml/kg'",
+            "calculatedDose": "(weight) => `${weight * 0.25} ml`",
+            "concentration": "10 mg/ml",
+            "calculatedVolume": "() => ''"
+        },
+        {
+            "name": "Suxamethonium",
+            "dose": "(weight) => weight < 10 ? '2 mg/kg' : '1 mg/kg'",
+            "calculatedDose": "(weight) => weight < 10 ? `${weight * 2} mg` : `${weight} mg`",
+            "concentration": "50 mg/ml",
+            "calculatedVolume": "(weight) => weight < 10 ? `${weight * 2 / 50} ml` : `${weight / 50} ml`"
+        },
+        {
+            "name": "Thiopentone (rarely indicated)",
+            "dose": "() => '5 mg/kg'",
+            "calculatedDose": "(weight) => `${weight * 5} mg`",
+            "concentration": "25 mg/ml",
+            "calculatedVolume": "(weight) => `${weight * 5 / 25} ml`"
+        }
+    ],
+    "bolusDrugs": [
+        {
+            "name": "Aciclovir",
+            "dose": "(weight) => '20 mg/kg if <60 days old, 500 * surface area (m²) if <12 years old, otherwise 5 mg/kg'",
+            "calculatedDose": "(weight, patientAgeInDays, surfaceArea) => patientAgeInDays < 60 ? `${weight * 20} mg` : patientAgeInDays < 4380 ? `${500 * surfaceArea} mg` : `${weight * 5} mg`"
+        },
+        {
+            "name": "CefTRIAXone",
+            "dose": "(weight) => '80 mg/kg, once daily'",
+            "calculatedDose": "(weight) => weight < 50 ? `${weight * 80} mg` : '4000 mg (max dose)'"
+        },
+        {
+            "name": "Glucose 10%",
+            "dose": "(weight) => '2 ml/kg bolus, for hypoglycaemia'",
+            "calculatedDose": "(weight) => weight < 50 ? `${weight * 2} ml` : '100 ml (max dose)'"
+        },
+        {
+            "name": "LORazepam",
+            "dose": "(weight) => '0.1 mg/kg'",
+            "calculatedDose": "(weight) => weight < 50 ? `${weight * 0.1} mg` : '4 mg (max dose)'"
+        },
+        {
+            "name": "LevETIRAcetam",
+            "dose": "(weight) => '40 mg/kg - infuse over 5 mins'",
+            "calculatedDose": "(weight) => weight < 75 ? `${weight * 40} mg` : '3000 mg (max dose)'"
+        },
+        {
+            "name": "Magnesium Sulphate 50%",
+            "dose": "(weight) => '0.08 ml/kg - dilute x10, slow IV over 20 mins'",
+            "calculatedDose": "(weight) => weight < 50 ? `${weight * 0.08} ml` : '4 ml (max dose)'"
+        },
+        {
+            "name": "PHENobarbitol",
+            "dose": "(weight) => '20 mg/kg - slow IV over 30 mins'",
+            "calculatedDose": "(weight) => `${weight * 20} mg`"
+        },
+        {
+            "name": "Phenytoin",
+            "dose": "(weight) => '20 mg/kg - slow IV over 30 mins'",
+            "calculatedDose": "(weight) => weight < 100 ? `${weight * 20} mg` : '2000 mg (max dose)'"
+        },
+        {
+            "name": "Hypertonic Saline",
+            "dose": "(weight) => '5 ml/kg of 3% or 3 ml/kg of 5%'",
+            "calculatedDose": "(weight) => weight < 50 ? `${weight * 5} ml of 3% or ${weight * 3} ml of 5%` : '250 ml of 3% (max dose) or 150 ml of 5% (max dose)'"
+        }
+    ],
+    "fluidInfusions": [
+        {
+            "name": "100% fluid requirement",
+            "calculatedDose": "(weight) => `${4 * (weight > 10 ? 10 : weight) + 2 * (weight - 10 > 0 ? (weight > 20 ? 10 : weight - 10) : 0) + 1 * (weight - 20 > 0 ? weight - 20 : 0)} ml/hr`"
+        },
+        {
+            "name": "80% fluid requirement",
+            "calculatedDose": "(weight) => `${0.8 * (4 * (weight > 10 ? 10 : weight) + 2 * (weight - 10 > 0 ? (weight > 20 ? 10 : weight - 10) : 0) + 1 * (weight - 20 > 0 ? weight - 20 : 0))} ml/hr`"
+        }
+    ],
+    "sedationInfusions": [
+        {
+          "name": "Morphine",
+          "standardRegime": "(weight) => weight < 50 ? '1 mg/kg made up to 50 ml with Glucose 5% or NaCl 0.9%' : 'Neat (1 mg/ml)'",
+          "calculatedRegime": "(weight) => weight < 50 ? `${weight} mg in 50 ml` : `50 mg in 50 ml`",
+          "startingRate": "(weight) => weight < 50 ? `1 ml/hr (20 micrograms/kg/hr)` : `1 ml/hr (${1000 / weight} micrograms/kg/hr)`"
+        },
+        {
+          "name": "Midazolam",
+          "standardRegime": "(weight) => weight < 50 ? '5 mg/kg made up to 50 ml with Glucose 5% or NaCl 0.9%' : 'Neat (5 mg/ml)'",
+          "calculatedRegime": "(weight) => weight < 50 ? `${weight * 5} mg in 50 ml` : `250 mg in 50 ml`",
+          "startingRate": "(weight) => weight < 50 ? `1 ml/hr (100 micrograms/kg/hr)` : `1 ml/hr (${5000 / weight} micrograms/kg/hr)`"
+        },
+        {
+          "name": "Rocuronium",
+          "standardRegime": "(weight) => weight < 16.6 ? '30 mg/kg made up to 50 ml with Glucose 5% or NaCl 0.9%' : 'Neat (10 mg/ml)'",
+          "calculatedRegime": "(weight) => weight < 16.6 ? `${weight * 30} mg in 50 ml` : `500 mg in 50 ml`",
+          "startingRate": "(weight) => weight < 16.6 ? `1 ml/hr (600 micrograms/kg/hr)` : `1 ml/hr (${10000 / weight} micrograms/kg/hr)`"
+        },
+        {
+          "name": "Atracurium",
+          "standardRegime": "(weight) => weight < 33 ? '15 mg/kg made up to 50 ml with Glucose 5% or NaCl 0.9%' : 'Neat (10 mg/ml)'",
+          "calculatedRegime": "(weight) => weight < 33 ? `${weight * 15} mg in 50 ml` : `500 mg in 50 ml`",
+          "startingRate": "(weight) => weight < 33 ? `1 ml/hr (300 micrograms/kg/hr)` : `1 ml/hr (${10000 / weight} micrograms/kg/hr)`"
+        },
+        {
+          "name": "FentaNYL",
+          "standardRegime": "() => 'Neat (50 micrograms/ml)'",
+          "calculatedRegime": "() => '250 micrograms in 5 ml'",
+          "startingRate": "(weight) => `${weight / 50} to ${weight / 25} ml/hr (1 - 2 micrograms/kg/hr)`"
+        },
+        {
+          "name": "Thiopentone",
+          "standardRegime": "() => 'Neat (25 mg/ml)'",
+          "calculatedRegime": "() => '100 mg in 4 ml'",
+          "startingRate": "(weight) => `${weight * 1/25} to ${weight * 6/25} ml/hr (1 - 6 mg/kg/hr)`"
+        }
+      ],
+    "cardiacInfusions": [
+        {
+            "name": "Central DOPamine",
+            "standardRegime": "(weight) => weight < 40 ? '15 mg/kg made up to 50 ml with Glucose 5% or NaCl 0.9%' : '3 mg/kg made up to 50 ml with Glucose 5% or NaCl 0.9%'",
+            "calculatedRegime": "(weight) => weight < 40 ? `${weight * 15} mg in 50 ml` : `${weight * 3} mg in 50 ml`",
+            "startingRate": "(weight) => weight < 40 ? `1 ml/hr (5 micrograms/kg/min)` : `1 ml/hr (1 microgram/kg/min)`"
+        },
+        {
+            "name": "DOBUTamine",
+            "standardRegime": "(weight) => weight < 40 ? '15 mg/kg made up to 50 ml with Glucose 5% or NaCl 0.9%' : '3 mg/kg made up to 50 ml with Glucose 5% or NaCl 0.9%'",
+            "calculatedRegime": "(weight) => weight < 40 ? `${weight * 15} mg in 50 ml` : `${weight * 3} mg in 50 ml`",
+            "startingRate": "(weight) => weight < 40 ? `1 ml/hr (5 micrograms/kg/min)` : `1 ml/hr (1 microgram/kg/min)`"
+        },
+        {
+            "name": "Peripheral Adrenaline",
+            "standardRegime": "(weight) => weight < 40 ? '0.03 mg/kg made up to 50 ml with Glucose 5% or NaCl 0.9%' : '0.006 mg/kg made up to 50 ml with Glucose 5% or NaCl 0.9%'",
+            "calculatedRegime": "(weight) => weight < 40 ? `${weight * 0.03} mg in 50 ml` : `${weight * 0.006} mg in 50 ml`",
+            "startingRate": "(weight) => weight < 40 ? `10 ml/hr (0.1 micrograms/kg/min)` : `50 ml/hr (0.02 microgram/kg/min)`"
+        },
+        {
+            "name": "Central Adrenaline",
+            "standardRegime": "(weight) => weight < 40 ? '0.3 mg/kg made up to 50 ml with Glucose 5% or NaCl 0.9%' : '0.06 mg/kg made up to 50 ml with Glucose 5% or NaCl 0.9%'",
+            "calculatedRegime": "(weight) => weight < 40 ? `${weight * 0.3} mg in 50 ml` : `${weight * 0.06} mg in 50 ml`",
+            "startingRate": "(weight) => weight < 40 ? `1 ml/hr (0.1 micrograms/kg/min)` : `1 ml/hr (0.02 microgram/kg/min)`"
+        },
+        {
+            "name": "Metaraminol",
+            "standardRegime": "(weight) => { if (weight < 10) { return '0.3 mg/kg made up to 50 ml with NaCl 0.9%'; } else if (weight < 66.6) { return '0.15 mg/kg made up to 50 ml with NaCl 0.9%'; } else { return '10 mg made up to 50 ml with NaCl 0.9%'; } }",
+            "calculatedRegime": "(weight) => { if (weight < 10) { return `${weight * 0.3} mg in 50 ml`; } else if (weight < 66.6) { return `${weight * 0.15} mg in 50 ml`; } else { return '10 mg in 50 ml'; } }",
+            "startingRate": "(weight) => weight < 10 ? `2.5 ml/hr (0.25 micrograms/kg/min)` : weight < 66.6 ? `5 ml/hr (0.25 micrograms/kg/min)` : `${0.075 * weight} ml/hr (0.25 micrograms/kg/min)`"
+        },
+        {
+            "name": "Noradrenaline",
+            "standardRegime": "(weight) => weight < 40 ? '0.3 mg/kg made up to 50 ml with Glucose 5% or NaCl 0.9%' : '0.06 mg/kg made up to 50 ml with Glucose 5% or NaCl 0.9%'",
+            "calculatedRegime": "(weight) => weight < 40 ? `${weight * 0.3} mg in 50 ml` : `${weight * 0.06} mg in 50 ml`",
+            "startingRate": "(weight) => weight < 40 ? `1 ml/hr (0.1 micrograms/kg/min)` : `1 ml/hr (0.02 microgram/kg/min)`"
+        },
+        {
+            "name": "Vasopressin",
+            "standardRegime": "(weight) => weight < 16.6 ? `${(weight * 2.4)} units made up to 40 ml with Glucose 5% or NaCl 0.9%` : `40 units made up to 40 ml with Glucose 5% or NaCl 0.9%`",
+            "calculatedRegime": "(weight) => weight < 16.6 ? `${(weight * 2.4)} units in 40 ml` : `40 units in 40 ml`",
+            "startingRate": "(weight) => weight < 16.6 ? `1 ml/hr (0.001 units/kg/min)` : `${weight * 0.06} ml/hr (0.001 units/kg/min)`"
+        },
+        {
+            "name": "Milrinone",
+            "standardRegime": "(weight) => weight < 33.3 ? '1.5 mg/kg made up to 50 ml with Glucose 5% or NaCl 0.9%' : 'Neat (1 mg/ml)'",
+            "calculatedRegime": "(weight) => weight < 33.3 ? `${(weight * 1.5)} mg in 50 ml` : `50 mg in 50 ml`",
+            "startingRate": "(weight) => weight < 33.3 ? `1 ml/hr (0.5 micrograms/kg/min)` : `1 ml/hr (${50000 / (3000 * weight)} micrograms/kg/min)`"
+        },
+        {
+            "name": "Dinoprostone (PGE2)",
+            "standardRegime": "(weight) => weight < 10 ? '100 micrograms made up to 50 ml with Glucose 5% or Glucose 10%' : 'N/A'",
+            "calculatedRegime": "(weight) => weight < 10 ? '100 micrograms in 50 ml' : 'N/A'",
+            "startingRate": "(weight) => weight < 10 ? `1 ml/hr (${100000 / (3000 * weight)} ng/kg/min)` : 'N/A'"
+        }
+    ],
+       "otherInfusions": [
+        {
+            "name": "Peripheral Salbutamol",
+            "standardRegime": "() => '10 mg made up to 50 ml with Glucose 5% or NaCl 0.9%'",
+            "calculatedRegime": "() => '10 mg in 50 ml'",
+            "startingRate": "(weight) => `${0.3 * weight} ml/hr (1 microgram/kg/min)`"
+        },
+        {
+            "name": "Peripheral Aminophylline",
+            "standardRegime": "() => '500 mg made up to 500 ml with Glucose 5% or NaCl 0.9%'",
+            "calculatedRegime": "() => '500 mg in 500 ml'",
+            "startingRate": "(weight) => `${weight} ml/hr (1 mg/kg/hr)`"
+        },
+        {
+            "name": "Peripheral Tranexamic Acid",
+            "standardRegime": "() => '500 mg made up to 500 ml with Glucose 5% or NaCl 0.9%'",
+            "calculatedRegime": "() => '500 mg in 500 ml'",
+            "startingRate": "(weight) => weight > 62.5 ? 'Run at 125 ml/hr (max dose) for 8hr (or until bleeding stops)' : `Run at ${weight * 2} ml/hr (2 mg/kg/hr) for 8hr (or until bleeding stops)`"
+        },
+        {
+            "name": "Central Salbutamol",
+            "standardRegime": "(weight) => weight < 16 ? '3 mg/kg made up to 50 ml with Glucose 5% or NaCl 0.9%' : 'Neat (1 mg/ml)'",
+            "calculatedRegime": "(weight) => weight < 16 ? `${(weight * 3)} mg in 50 ml` : '50 mg in 50 ml'",
+            "startingRate": "(weight) => weight < 16 ? '1 ml/hr (1 micrograms/kg/min)' : `1 ml/hr (${50000 / (weight * 3000)} micrograms/kg/min)`"
+        },
+        {
+            "name": "Central Aminophylline",
+            "standardRegime": "(weight) => weight < 25 ? '50 mg/kg made up to 50 ml with Glucose 5% or NaCl 0.9%' : 'Neat (25 mg/ml)'",
+            "calculatedRegime": "(weight) => weight < 25 ? `${(weight * 50)} mg in 50 ml` : '1250 mg in 50 ml'",
+            "startingRate": "(weight) => weight < 25 ? '1 ml/hr (1 mg/kg/hr)' : `1 ml/hr (${1250 / (weight * 50)} mg/kg/hr)`"
+        }
+    ]
+}
