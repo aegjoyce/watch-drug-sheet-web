@@ -102,7 +102,19 @@ function boldText(text) {
     return text.replace(/(Central|Peripheral)/g, '<strong>$1</strong>');
 }
 function formatValue(value) {
-    return value.replace(/(\d+(\.\d+)?)/g, (match) => {
+    return value.replace(/(\d+(\.\d+)?)(\s*micrograms)/g, (match, numStr, _, unit) => {
+        const num = Number(numStr);
+        if (num > 1000) {
+            return `${(num / 1000).toFixed(2).replace(/\.?0+$/, '')} mg`;
+        }
+        return match;
+    }).replace(/(\d+(\.\d+)?)(\s*mg)/g, (match, numStr, _, unit) => {
+        const num = Number(numStr);
+        if (num > 1000) {
+            return `${(num / 1000).toFixed(2).replace(/\.?0+$/, '')} g`;
+        }
+        return match;
+    }).replace(/(\d+(\.\d+)?)/g, (match) => {
         const num = Number(match);
         if (num < 0.01) {
             return num.toPrecision(1).replace(/\.?0+$/, '');
