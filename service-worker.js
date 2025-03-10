@@ -1,4 +1,4 @@
-const CACHE_NAME = 'v24'; // Increment cache version
+const CACHE_NAME = 'v25'; // Increment cache version
 
 const urlsToCache = [
   './',
