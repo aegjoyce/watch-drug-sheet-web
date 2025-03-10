@@ -59,6 +59,18 @@
     background-color: var(--button-hover-background-color);
 }
 
+.update-notification {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #6a1b9a;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
 /* android app install button */
 
 .install-button-container {

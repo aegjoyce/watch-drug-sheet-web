@@ -353,13 +353,41 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./service-worker.js').then(registration => {
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      }, err => {
-        console.log('ServiceWorker registration failed: ', err);
-      });
+        navigator.serviceWorker.register('./service-worker.js').then(registration => {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+
+            registration.onupdatefound = () => {
+                const installingWorker = registration.installing;
+                installingWorker.onstatechange = () => {
+                    if (installingWorker.state === 'installed') {
+                        if (navigator.serviceWorker.controller) {
+                            // New update available
+                            const updateNotification = document.createElement('div');
+                            updateNotification.className = 'update-notification';
+                            updateNotification.innerHTML = `
+                                <p>New version available. <button id="refresh">Refresh</button></p>
+                            `;
+                            document.body.appendChild(updateNotification);
+
+                            document.getElementById('refresh').addEventListener('click', () => {
+                                installingWorker.postMessage('SKIP_WAITING');
+                            });
+                        }
+                    }
+                };
+            };
+        }).catch(err => {
+            console.log('ServiceWorker registration failed: ', err);
+        });
+
+        let refreshing;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+            if (refreshing) return;
+            window.location.reload();
+            refreshing = true;
+        });
     });
-  }
+}
 
 function isIos() {
     const userAgent = window.navigator.userAgent.toLowerCase();

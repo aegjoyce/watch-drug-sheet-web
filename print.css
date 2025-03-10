@@ -78,9 +78,7 @@ th {
 }
 
 .footer {
-    margin-top: 100px;
-    text-align: center;
-    font-size: 8px;
+    display: none;
 }
 
 .print-header {

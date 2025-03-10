@@ -1,4 +1,4 @@
-const CACHE_NAME = 'v12';
+const CACHE_NAME = 'v14'; // Update the cache name to force update
 const urlsToCache = [
   './',
   './index.html',
@@ -43,4 +43,11 @@ self.addEventListener('activate', event => {
       );
     })
   );
+  self.clients.claim();
+});
+
+self.addEventListener('message', event => {
+  if (event.data === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
 });
