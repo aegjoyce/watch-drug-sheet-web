@@ -387,6 +387,16 @@ if ('serviceWorker' in navigator) {
             refreshing = true;
         });
     });
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+            navigator.serviceWorker.getRegistration().then(registration => {
+                if (registration) {
+                    registration.update();
+                }
+            });
+        }
+    });
 }
 
 function isIos() {
