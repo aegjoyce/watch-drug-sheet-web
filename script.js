@@ -356,10 +356,9 @@ if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('./service-worker.js').then(registration => {
             console.log('ServiceWorker registered with scope:', registration.scope);
 
-            // Force update check when the app is loaded
+            // Force update check when the app loads
             registration.update();
 
-            // Listen for an update
             registration.onupdatefound = () => {
                 const installingWorker = registration.installing;
                 installingWorker.onstatechange = () => {
@@ -369,17 +368,21 @@ if ('serviceWorker' in navigator) {
                 };
             };
         }).catch(err => console.error('ServiceWorker registration failed:', err));
-
-        // Ensure page reloads when service worker updates
-        let refreshing;
-        navigator.serviceWorker.addEventListener('controllerchange', () => {
-            if (refreshing) return;
-            window.location.reload();
-            refreshing = true;
-        });
     });
 
-    // Force update when PWA comes into focus (iOS-specific workaround)
+    // Fix: Debounce refresh to prevent infinite loop
+    let refreshing = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (refreshing) return;
+        refreshing = true;
+
+        // Delay reload slightly to let SW activate fully
+        setTimeout(() => {
+            window.location.reload();
+        }, 500); // Short delay to prevent conflicts
+    });
+
+    // Force update when PWA comes into focus
     document.addEventListener('visibilitychange', () => {
         if (document.visibilityState === 'visible') {
             navigator.serviceWorker.getRegistration().then(registration => {

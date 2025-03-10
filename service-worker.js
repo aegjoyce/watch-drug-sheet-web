@@ -1,4 +1,5 @@
-const CACHE_NAME = 'v22'; // Increment this manually to force updates
+const CACHE_NAME = 'v23'; // Increment cache version
+
 const urlsToCache = [
   './',
   './index.html',
@@ -13,15 +14,7 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
   );
-  self.skipWaiting(); // Forces the new SW to become active immediately
-});
-
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
-  );
+  self.skipWaiting(); // Forces immediate activation of new SW
 });
 
 self.addEventListener('activate', event => {
@@ -36,7 +29,15 @@ self.addEventListener('activate', event => {
       );
     })
   );
-  self.clients.claim(); // Take control of all clients immediately
+  return self.clients.claim(); // Ensure all pages are controlled
+});
+
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request);
+    })
+  );
 });
 
 self.addEventListener('message', event => {
