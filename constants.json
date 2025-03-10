@@ -65,70 +65,80 @@
             "dose": "() => '100 micrograms/kg (initial), 250 micrograms/kg (full)'",
             "calculatedDose": "(weight) => weight < 60 ? `${weight * 100} micrograms (initial), ${weight * 250} micrograms (full)` : weight < 96 ? `6000 micrograms (initial, max dose), ${weight * 250} micrograms (full)` : '6000 micrograms (initial, max dose), 24000 micrograms (full, max dose)'",
             "concentration": "3 mg/ml",
-            "calculatedVolume": "(weight) => weight < 60 ? `${weight * 100 / 3000} ml (initial), ${weight * 250 / 3000} ml (full)` : weight < 96 ? `2 ml (initial), ${weight * 250 / 3000} ml (full)` : `2 ml (initial), 8 ml (full)`"
+            "calculatedVolume": "(weight) => weight < 60 ? `${weight * 100 / 3000} ml (initial), ${weight * 250 / 3000} ml (full)` : weight < 96 ? `2 ml (initial), ${weight * 250 / 3000} ml (full)` : `2 ml (initial), 8 ml (full)`",
+            "description": "<h2>Adenosine</h2><p>100 micrograms/kg (initial dose) up to 250 micrograms/kg<p>Maximum initial dose 6 mg, maximum full dose 24 mg"
         },
         {
             "name": "Adrenaline 1:10000",
             "dose": "() => '0.1 ml/kg'",
             "calculatedDose": "(weight) => `${weight * 0.1} ml`",
             "concentration": "",
-            "calculatedVolume": "() => ''"
+            "calculatedVolume": "() => ''",
+            "description": "<h2>Adrenaline 1:10000</h2><p>0.1 ml/kg"
         },
         {
             "name": "Amiodarone",
             "dose": "() => '5 mg/kg'",
             "calculatedDose": "(weight) => weight < 60 ? `${weight * 5} mg over 3 mins, only in arrest` : '300 mg over 3 mins, only in arrest (max dose)'",
             "concentration": "50 mg/ml",
-            "calculatedVolume": "(weight) => weight < 60 ? `${weight * 5 / 50} ml` : '6 ml'"
+            "calculatedVolume": "(weight) => weight < 60 ? `${weight * 5 / 50} ml` : '6 ml'",
+            "description": "<h2>Amiodarone</h2><p>5 mg/kg over 3 mins, only in arrest<p>Maximum dose 300 mg"
         },
         {
             "name": "Atropine",
             "dose": "() => '20 micrograms/kg'",
             "calculatedDose": "(weight) => weight < 5 ? '100 micrograms (min dose)' : weight > 30 ? '600 micrograms (max dose)' : `${weight * 20} micrograms`",
             "concentration": "600 micrograms/ml",
-            "calculatedVolume": "(weight) => weight < 5 ? '0.17 ml' : weight > 30 ? '1 ml' : `${weight * 20 / 600} ml`"
+            "calculatedVolume": "(weight) => weight < 5 ? '0.17 ml' : weight > 30 ? '1 ml' : `${weight * 20 / 600} ml`",
+            "description": "<h2>Atropine</h2><p>20 micrograms/kg<p>Minimum dose 100 micrograms<p>Maximum dose 600 micrograms"
         },
         {
             "name": "Sodium Bicarbonate 8.4%",
             "dose": "() => '1 ml/kg'",
             "calculatedDose": "(weight) => `${weight} ml`",
             "concentration": "",
-            "calculatedVolume": "() => ''"
+            "calculatedVolume": "() => ''",
+            "description": "<h2>Sodium Bicarbonate 8.4%</h2><p>1 ml/kg"
         },
         {
             "name": "Calcium Gluconate 10%",
             "dose": "() => '0.5 ml/kg'",
             "calculatedDose": "(weight) => weight < 60 ? `${weight * 0.5} ml` : '30 ml (max dose)'",
             "concentration": "",
-            "calculatedVolume": "() => ''"
+            "calculatedVolume": "() => ''",
+            "description": "<h2>Calcium Gluconate 10%</h2><p>0.5 ml/kg<p>Maximum dose 30 ml"
         },
         {
             "name": "Lidocaine 1%",
             "dose": "() => '1 mg/kg'",
             "calculatedDose": "(weight) => `${weight} mg`",
             "concentration": "10 mg/ml",
-            "calculatedVolume": "(weight) => `${weight / 10} ml`"
+            "calculatedVolume": "(weight) => `${weight / 10} ml`",
+            "description": "<h2>Lidocaine 1%</h2><p>1 mg/kg"
         },
         {
             "name": "Naloxone",
             "dose": "() => '10 micrograms/kg'",
             "calculatedDose": "(weight) => `${weight * 10} micrograms`",
             "concentration": "400 micrograms/ml",
-            "calculatedVolume": "(weight) => `${weight * 10 / 400} ml`"
+            "calculatedVolume": "(weight) => `${weight * 10 / 400} ml`",
+            "description": "<h2>Naloxone</h2><p>10 micrograms/kg"
         },
         {
             "name": "Tranexamic Acid",
             "dose": "() => '15 mg/kg'",
             "calculatedDose": "(weight) => weight < 100 ? `${weight * 15} mg` : '1500 mg (max dose)'",
             "concentration": "100 mg/ml",
-            "calculatedVolume": "(weight) => weight < 100 ? `${weight * 15 / 100} ml` : '15 ml'"
+            "calculatedVolume": "(weight) => weight < 100 ? `${weight * 15 / 100} ml` : '15 ml'",
+            "description": "<h2>Tranexamic Acid</h2><p>15 mg/kg<p?Maximum dose 1500 mg"
         },
         {
             "name": "Vasopressin",
             "dose": "() => '0.4 units/kg'",
             "calculatedDose": "(weight) => `${weight * 0.4} units`",
             "concentration": "20 units/ml",
-            "calculatedVolume": "(weight) => `${weight * 0.4 / 20} ml`"
+            "calculatedVolume": "(weight) => `${weight * 0.4 / 20} ml`",
+            "description": "<h2>Vasopressin</h2><p>0.4 units/kg"
         }
     ],
     "intubationDrugs": [

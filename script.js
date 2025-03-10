@@ -172,6 +172,37 @@ function displayResults(measurements, suctionCatheterMeasurement, fluidBolus, de
         </tbody>
     `;
 
+    function createDrugRow(infusion) {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${boldText(infusion.name)}</td>
+            <td>${formatValue(infusion.dose(weight))}</td>
+            <td>${formatValue(infusion.calculatedDose(weight))}</td>
+            <td>${infusion.concentration}</td>
+            <td>${formatValue(infusion.calculatedVolume(weight))}</td>
+        `;
+        row.addEventListener('click', () => {
+            const modal = document.getElementById('description-modal');
+            const descriptionContent = document.getElementById('description-content');
+            descriptionContent.innerHTML = infusion.description; // Set the description content
+            modal.style.display = 'block'; // Show the modal
+        });
+        return row;
+    }
+
+    // Close the modal when the user clicks the close button
+    document.getElementById('close-description-modal').onclick = function() {
+        document.getElementById('description-modal').style.display = 'none';
+    }
+
+    // Close the modal when the user clicks anywhere outside of the modal
+    window.onclick = function(event) {
+        const modal = document.getElementById('description-modal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+
     emergencyDrugsTable.innerHTML = `
         <caption>Emergency Drug Doses</caption>
         <tr>
@@ -181,16 +212,10 @@ function displayResults(measurements, suctionCatheterMeasurement, fluidBolus, de
             <th>Usual Concentration</th>
             <th>Calculated Volume</th>
         </tr>
-        ${emergencyDrugs.map(infusion => `
-            <tr>
-                <td>${boldText(infusion.name)}</td>
-                <td>${formatValue(infusion.dose(weight))}</td>
-                <td>${formatValue(infusion.calculatedDose(weight))}</td>
-                <td>${infusion.concentration}</td>
-                <td>${formatValue(infusion.calculatedVolume(weight))}</td>
-            </tr>
-        `).join('')}
     `;
+    emergencyDrugs.forEach(infusion => {
+        emergencyDrugsTable.appendChild(createDrugRow(infusion));
+    });
 
     bolusDrugsTable.innerHTML = `
         <caption>Bolus Drugs</caption>
