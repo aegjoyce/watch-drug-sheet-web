@@ -354,32 +354,23 @@ window.addEventListener('beforeinstallprompt', (e) => {
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('./service-worker.js').then(registration => {
-            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            console.log('ServiceWorker registered with scope:', registration.scope);
 
+            // Force update check when the app is loaded
+            registration.update();
+
+            // Listen for an update
             registration.onupdatefound = () => {
                 const installingWorker = registration.installing;
                 installingWorker.onstatechange = () => {
-                    if (installingWorker.state === 'installed') {
-                        if (navigator.serviceWorker.controller) {
-                            // New update available
-                            const updateNotification = document.createElement('div');
-                            updateNotification.className = 'update-notification';
-                            updateNotification.innerHTML = `
-                                <p>New version available. <button id="refresh">Refresh</button></p>
-                            `;
-                            document.body.appendChild(updateNotification);
-
-                            document.getElementById('refresh').addEventListener('click', () => {
-                                installingWorker.postMessage('SKIP_WAITING');
-                            });
-                        }
+                    if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                        showUpdateNotification(installingWorker);
                     }
                 };
             };
-        }).catch(err => {
-            console.log('ServiceWorker registration failed: ', err);
-        });
+        }).catch(err => console.error('ServiceWorker registration failed:', err));
 
+        // Ensure page reloads when service worker updates
         let refreshing;
         navigator.serviceWorker.addEventListener('controllerchange', () => {
             if (refreshing) return;
@@ -388,6 +379,7 @@ if ('serviceWorker' in navigator) {
         });
     });
 
+    // Force update when PWA comes into focus (iOS-specific workaround)
     document.addEventListener('visibilitychange', () => {
         if (document.visibilityState === 'visible') {
             navigator.serviceWorker.getRegistration().then(registration => {
@@ -398,6 +390,20 @@ if ('serviceWorker' in navigator) {
         }
     });
 }
+
+function showUpdateNotification(worker) {
+    const updateNotification = document.createElement('div');
+    updateNotification.className = 'update-notification';
+    updateNotification.innerHTML = `
+        <p>New version available. <button id="refresh">Refresh</button></p>
+    `;
+    document.body.appendChild(updateNotification);
+
+    document.getElementById('refresh').addEventListener('click', () => {
+        worker.postMessage('SKIP_WAITING');
+    });
+}
+
 
 function isIos() {
     const userAgent = window.navigator.userAgent.toLowerCase();
