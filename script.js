@@ -323,29 +323,22 @@ function displayResults(measurements, suctionCatheterMeasurement, fluidBolus, de
 let deferredPrompt;
 
 window.addEventListener('beforeinstallprompt', (e) => {
-    console.log('beforeinstallprompt event triggered'); // Log event trigger
-    // Prevent the mini-infobar from appearing on mobile
+    console.log('beforeinstallprompt event triggered');
     e.preventDefault();
-    // Stash the event so it can be triggered later.
     deferredPrompt = e;
-    // Update UI to notify the user they can install the PWA
+
     const installButtonContainer = document.querySelector('.install-button-container');
     installButtonContainer.style.display = 'block';
 
     const installButton = document.getElementById('install-button');
     installButton.addEventListener('click', () => {
-        console.log('Install button clicked'); // Log button click
-        // Hide the install button container
+        console.log('Install button clicked');
         installButtonContainer.style.display = 'none';
-        // Show the install prompt
         deferredPrompt.prompt();
-        // Wait for the user to respond to the prompt
         deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-                console.log('User accepted the install prompt');
-            } else {
-                console.log('User dismissed the install prompt');
-            }
+            console.log(choiceResult.outcome === 'accepted' 
+                ? 'User accepted the install prompt' 
+                : 'User dismissed the install prompt');
             deferredPrompt = null;
         });
     });
@@ -356,8 +349,10 @@ if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('./service-worker.js').then(registration => {
             console.log('ServiceWorker registered with scope:', registration.scope);
 
-            // Force update check when the app loads
-            registration.update();
+            // Force an update check every 5 minutes
+            setInterval(() => {
+                registration.update();
+            }, 5 * 60 * 1000);
 
             registration.onupdatefound = () => {
                 const installingWorker = registration.installing;
@@ -370,19 +365,18 @@ if ('serviceWorker' in navigator) {
         }).catch(err => console.error('ServiceWorker registration failed:', err));
     });
 
-    // Fix: Debounce refresh to prevent infinite loop
     let refreshing = false;
     navigator.serviceWorker.addEventListener('controllerchange', () => {
         if (refreshing) return;
         refreshing = true;
 
-        // Delay reload slightly to let SW activate fully
-        setTimeout(() => {
-            window.location.reload();
-        }, 500); // Short delay to prevent conflicts
+        // Prevent infinite refresh loops
+        if (!sessionStorage.getItem('reloaded')) {
+            sessionStorage.setItem('reloaded', 'true');
+            setTimeout(() => window.location.reload(), 500);
+        }
     });
 
-    // Force update when PWA comes into focus
     document.addEventListener('visibilitychange', () => {
         if (document.visibilityState === 'visible') {
             navigator.serviceWorker.getRegistration().then(registration => {
@@ -404,18 +398,17 @@ function showUpdateNotification(worker) {
 
     document.getElementById('refresh').addEventListener('click', () => {
         worker.postMessage('SKIP_WAITING');
+        setTimeout(() => window.location.reload(), 1000);
     });
 }
 
-
-
+// iOS PWA Detection and Fix
 function isIos() {
-    const userAgent = window.navigator.userAgent.toLowerCase();
-    return /iphone|ipad|ipod/.test(userAgent);
+    return /iphone|ipad|ipod/.test(window.navigator.userAgent.toLowerCase());
 }
 
 function isInStandaloneMode() {
-    return ('standalone' in window.navigator) && (window.navigator.standalone);
+    return 'standalone' in window.navigator && window.navigator.standalone;
 }
 
 if (isIos() && !isInStandaloneMode()) {
@@ -427,6 +420,20 @@ if (isIos() && !isInStandaloneMode()) {
         iosInstallModal.style.display = 'none';
     };
 }
+
+// iOS Service Worker Fix - Forces SW Re-registration on Update
+if (isIos()) {
+    navigator.serviceWorker.getRegistration().then(registration => {
+        if (registration) {
+            registration.unregister().then(() => {
+                navigator.serviceWorker.register('./service-worker.js').then(() => {
+                    console.log('iOS: Service worker re-registered to force update.');
+                });
+            });
+        }
+    });
+}
+
 
 window.addEventListener('beforeprint', () => {
     fetch('https://abacus.jasoncameron.dev/hit/watchdrugcalculator/pageprints')
