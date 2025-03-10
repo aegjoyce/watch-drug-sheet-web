@@ -1,4 +1,4 @@
-const CACHE_NAME = 'v20'; // Increment this manually to force updates
+const CACHE_NAME = 'v21'; // Increment this manually to force updates
 const urlsToCache = [
   './',
   './index.html',
