@@ -380,7 +380,50 @@ if (isIos() && !isInStandaloneMode()) {
     };
 }
 
+window.addEventListener('beforeprint', () => {
+    fetch('https://abacus.jasoncameron.dev/hit/watchdrugcalculator/pageprints')
+        .then(response => response.json())
+        .then(data => console.log('Page print recorded:', data))
+        .catch(error => console.error('Error recording page print:', error));
+});
+
 document.addEventListener("DOMContentLoaded", () => {
+
+    fetch('https://abacus.jasoncameron.dev/hit/watchdrugcalculator/pageviews')
+        .then(response => response.json())
+        .then(data => console.log('Page view recorded:', data))
+        .catch(error => console.error('Error recording page view:', error));
+
+    fetch('https://abacus.jasoncameron.dev/get/watchdrugcalculator/pageviews')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('page-views').textContent = data.value;
+        })
+        .catch(error => {
+            console.error('Error recording page view:', error);
+            document.getElementById('page-views').textContent = 'Error';
+        });
+
+    fetch('https://abacus.jasoncameron.dev/get/watchdrugcalculator/submitbutton')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('submit-button-clicks').textContent = data.value;
+        })
+        .catch(error => {
+            console.error('Error recording submit button click:', error);
+            document.getElementById('submit-button-clicks').textContent = 'Error';
+        });
+
+    fetch('https://abacus.jasoncameron.dev/get/watchdrugcalculator/pageprints')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('page-prints').textContent = data.value;
+        })
+        .catch(error => {
+            console.error('Error recording page print:', error);
+            document.getElementById('page-prints').textContent = 'Error';
+        });
+
     const ageMethodRadios = document.querySelectorAll('input[name="age-method"]');
     const dobInput = document.getElementById("dob-input");
     const estimatedAgeInput = document.getElementById("estimated-age-input");
@@ -486,6 +529,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     submitButton.addEventListener("click", () => {
+
+        fetch('https://abacus.jasoncameron.dev/hit/watchdrugcalculator/submitbutton')
+            .then(response => response.json())
+            .then(data => console.log('Submit button click recorded:', data))
+            .catch(error => console.error('Error recording submit button click:', error));
+
         const weight = parseFloat(weightField.value);
         const dob = dobField.value;
         const ageValue = ageValueInput.value;
