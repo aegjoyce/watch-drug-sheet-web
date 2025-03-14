@@ -1,7 +1,7 @@
-const CACHE_NAME = 'v36'; // Increment this every time you update files
+const CACHE_NAME = 'v73'; // Increment this to force a cache update
 const urlsToCache = [
-  './', // Cache the root URL
-  './index.html', // Ensure index.html is cached properly
+  './',
+  './index.html',
   './styles.css',
   './script.js',
   './manifest.json',
@@ -9,58 +9,54 @@ const urlsToCache = [
   './images/icon-512x512.png'
 ];
 
-// Install event: Cache assets
+// Install event: Cache all assets
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(urlsToCache);
-    })
+    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
   );
   self.skipWaiting(); // Activate new service worker immediately
 });
 
-// Fetch event: Serve from cache first, except for index.html
+// Fetch event: Cache-first for all assets, network-first for index.html
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
 
-  // Always fetch index.html from network to ensure latest content
   if (url.pathname === '/' || url.pathname.endsWith('index.html')) {
     event.respondWith(
-      fetch(event.request).then(response => {
-        return caches.open(CACHE_NAME).then(cache => {
-          cache.put(event.request, response.clone()); // Update cache with latest HTML
-          return response;
-        });
-      }).catch(() => caches.match(event.request)) // If offline, use cache
+      fetch(event.request)
+        .then(response => {
+          return caches.open(CACHE_NAME).then(cache => {
+            cache.put(event.request, response.clone());
+            return response;
+          });
+        })
+        .catch(() => caches.match(event.request))
     );
     return;
   }
 
-  // For other assets, use cache-first strategy
   event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
+    caches.match(event.request).then(response => response || fetch(event.request))
   );
 });
 
-// Activate event: Clean up old caches and take control
+// Activate event: Delete old caches and take control immediately
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
+    caches.keys().then(cacheNames =>
+      Promise.all(
         cacheNames.map(cacheName => {
           if (cacheName !== CACHE_NAME) {
-            return caches.delete(cacheName); // Delete old caches
+            return caches.delete(cacheName);
           }
         })
-      );
-    })
+      )
+    )
   );
-  self.clients.claim(); // Take control of pages immediately
+  self.clients.claim();
 });
 
-// Listen for SKIP_WAITING message (to update SW without reload)
+// Handle update trigger from client
 self.addEventListener('message', event => {
   if (event.data === 'SKIP_WAITING') {
     self.skipWaiting();

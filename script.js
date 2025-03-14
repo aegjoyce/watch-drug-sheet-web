@@ -320,119 +320,68 @@ function displayResults(measurements, suctionCatheterMeasurement, fluidBolus, de
     `;
 }
 
-let deferredPrompt;
-
-window.addEventListener('beforeinstallprompt', (e) => {
-    console.log('beforeinstallprompt event triggered');
-    e.preventDefault();
-    deferredPrompt = e;
-
-    const installButtonContainer = document.querySelector('.install-button-container');
-    installButtonContainer.style.display = 'block';
-
-    const installButton = document.getElementById('install-button');
-    installButton.addEventListener('click', () => {
-        console.log('Install button clicked');
-        installButtonContainer.style.display = 'none';
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-            console.log(choiceResult.outcome === 'accepted' 
-                ? 'User accepted the install prompt' 
-                : 'User dismissed the install prompt');
-            deferredPrompt = null;
-        });
-    });
-});
-
 if ('serviceWorker' in navigator) {
+    let refreshing = false;
+    let updateAvailable = false;
+
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('./service-worker.js').then(registration => {
-            console.log('ServiceWorker registered with scope:', registration.scope);
+            console.log('Service Worker registered with scope:', registration.scope);
 
-            // Force an update check every 5 minutes
+            // Poll for updates every 15 minutes (suitable for iOS throttling)
             setInterval(() => {
                 registration.update();
-            }, 1 * 60 * 1000);
+            }, 15 * 60 * 1000); 
+
+            // Check for update when app becomes visible
+            document.addEventListener('visibilitychange', () => {
+                if (document.visibilityState === 'visible' && !updateAvailable) {
+                    registration.update(); // Force check
+                }
+            });
 
             registration.onupdatefound = () => {
                 const installingWorker = registration.installing;
                 installingWorker.onstatechange = () => {
                     if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                        showUpdateNotification(installingWorker);
+                        if (!updateAvailable) {
+                            updateAvailable = true;
+                            showUpdateNotification(installingWorker);
+                        }
                     }
                 };
             };
-        }).catch(err => console.error('ServiceWorker registration failed:', err));
+        }).catch(err => console.error('Service Worker registration failed:', err));
     });
 
-    let refreshing = false;
+    // No automatic reload — only happens on button click
     navigator.serviceWorker.addEventListener('controllerchange', () => {
         if (refreshing) return;
         refreshing = true;
-
-        // Prevent infinite refresh loops
-        if (!sessionStorage.getItem('reloaded')) {
-            sessionStorage.setItem('reloaded', 'true');
-            setTimeout(() => window.location.reload(), 500);
-        }
-    });
-
-    document.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'visible') {
-            navigator.serviceWorker.getRegistration().then(registration => {
-                if (registration) {
-                    registration.update();
-                }
-            });
-        }
+        console.log('Service worker controller change detected');
+        // No automatic reload here — user must click button
     });
 }
 
 function showUpdateNotification(worker) {
+    if (document.getElementById('update-notification')) return;
+
     const updateNotification = document.createElement('div');
+    updateNotification.id = 'update-notification';
     updateNotification.className = 'update-notification';
     updateNotification.innerHTML = `
-        <p>New version available. <button id="refresh">Refresh</button></p>
+        <p>New version available. <button id="refresh">Update Now</button></p>
     `;
     document.body.appendChild(updateNotification);
 
     document.getElementById('refresh').addEventListener('click', () => {
+        console.log('Update button clicked');
         worker.postMessage('SKIP_WAITING');
-        setTimeout(() => window.location.reload(), 1000);
+        setTimeout(() => window.location.reload(true), 500); // Force hard reload
     });
 }
 
-// iOS PWA Detection and Fix
-function isIos() {
-    return /iphone|ipad|ipod/.test(window.navigator.userAgent.toLowerCase());
-}
 
-function isInStandaloneMode() {
-    return 'standalone' in window.navigator && window.navigator.standalone;
-}
-
-if (isIos() && !isInStandaloneMode()) {
-    const iosInstallModal = document.getElementById('ios-install-modal');
-    const closeIosModalButton = document.getElementById('close-ios-modal');
-    iosInstallModal.style.display = 'block';
-
-    closeIosModalButton.onclick = function() {
-        iosInstallModal.style.display = 'none';
-    };
-}
-
-// iOS Service Worker Fix - Forces SW Re-registration on Update
-if (isIos()) {
-    navigator.serviceWorker.getRegistration().then(registration => {
-        if (registration) {
-            registration.unregister().then(() => {
-                navigator.serviceWorker.register('./service-worker.js').then(() => {
-                    console.log('iOS: Service worker re-registered to force update.');
-                });
-            });
-        }
-    });
-}
 
 
 window.addEventListener('beforeprint', () => {
