@@ -1,12 +1,19 @@
-const CACHE_NAME = 'v73'; // Increment this to force a cache update
+const CACHE_NAME = 'v77'; // Increment this to force a cache update
 const urlsToCache = [
   './',
   './index.html',
   './styles.css',
   './script.js',
   './manifest.json',
-  './images/icon-192x192.png',
-  './images/icon-512x512.png'
+  './images/app-icon.png',
+  './images/apple-touch-icon.png',
+  './images/favicon-96x96.png',
+  './images/favicon.ico',
+  './images/favicon.svg',
+  './images/icon-dark-192x192.png',
+  './images/icon-dark-512x512.png',
+  './images/icon-light-192x192.png',
+  './images/icon-light-512x512.png'
 ];
 
 // Install event: Cache all assets
