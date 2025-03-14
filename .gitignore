@@ -2,3 +2,6 @@
 WATCh-Drug-Sheet-v27.17-2.xlsx
 ~$WATCh-Drug-Sheet-v27.17-2.xlsx
 .DS_Store
+https_server.py
+server-cert.pem
+server-key.pem
