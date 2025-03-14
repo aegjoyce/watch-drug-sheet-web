@@ -1,4 +1,4 @@
-const CACHE_NAME = 'v35'; // Increment this every time you update files
+const CACHE_NAME = 'v36'; // Increment this every time you update files
 const urlsToCache = [
   './', // Cache the root URL
   './index.html', // Ensure index.html is cached properly
