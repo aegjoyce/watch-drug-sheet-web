@@ -352,7 +352,7 @@ if ('serviceWorker' in navigator) {
             // Force an update check every 5 minutes
             setInterval(() => {
                 registration.update();
-            }, 5 * 60 * 1000);
+            }, 1 * 60 * 1000);
 
             registration.onupdatefound = () => {
                 const installingWorker = registration.installing;
